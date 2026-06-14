@@ -35,7 +35,7 @@ export default function Footer() {
             <ul className="mt-3 space-y-2 text-sm">
               <li className="flex items-center gap-2">
                 <Phone size={16} className="text-amber-500" />
-                +91 00000 00000
+                +92 300 4079337
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={16} className="text-amber-500" />
@@ -43,7 +43,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <MapPin size={16} className="mt-0.5 text-amber-500" />
-                123 Industrial Area, Your City, India
+                 SK Trading, Rajba Rd, Sharif Garden Lahore, Pakistan
               </li>
             </ul>
           </div>

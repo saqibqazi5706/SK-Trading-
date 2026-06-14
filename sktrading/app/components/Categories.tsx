@@ -15,6 +15,12 @@ const categories = [
       "Reliable used die casting machines imported from Japan, ideal for automotive, hardware, and component manufacturing applications.",
     href: "/machines/die-casting",
   },
+  {
+    title: "Brand New Machines - Task",
+    description:
+      "Brand new Plastic Injection Moulding Machines manufactured under our own brand, Task, and imported directly to Pakistan.",
+    href: "/machines/task-new",
+  },
 ];
 
 export default function Categories() {
@@ -29,7 +35,7 @@ export default function Categories() {
             Browse our range of inspected, ready-to-ship industrial machines.
           </p>
         </div>
-        <div className="grid gap-8 sm:grid-cols-2">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {categories.map((cat) => (
             <div
               key={cat.title}

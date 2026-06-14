@@ -14,7 +14,7 @@ export default function ContactCTA() {
               directly on WhatsApp or send us a message using the form.
             </p>
             <a
-              href="https://wa.me/910000000000"
+              href="https://wa.me/923004079337"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 inline-flex items-center gap-2 rounded-md bg-green-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-green-700"
@@ -34,7 +34,7 @@ export default function ContactCTA() {
                   id="name"
                   type="text"
                   name="name"
-                  className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
+                  className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
                   placeholder="Your name"
                 />
               </div>
@@ -46,7 +46,7 @@ export default function ContactCTA() {
                   id="email"
                   type="email"
                   name="email"
-                  className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
+                  className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
                   placeholder="you@example.com"
                 />
               </div>
@@ -58,7 +58,7 @@ export default function ContactCTA() {
                   id="message"
                   name="message"
                   rows={4}
-                  className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
+                  className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
                   placeholder="Tell us what you're looking for..."
                 />
               </div>
