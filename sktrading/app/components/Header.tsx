@@ -1,27 +1,185 @@
+"use client";
+
 import Link from "next/link";
-import { Phone } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Phone, ChevronDown, Menu, X } from "lucide-react";
+
+const machineLinks = [
+  {
+    label: "Plastic Injection Moulding Machines",
+    href: "/machines/injection-moulding",
+  },
+  {
+    label: "Aluminum Die Casting Machines",
+    href: "/machines/die-casting",
+  },
+];
 
 export default function Header() {
+  const [machinesOpen, setMachinesOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileMachinesOpen, setMobileMachinesOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setMachinesOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  function closeMobileMenu() {
+    setMobileOpen(false);
+    setMobileMachinesOpen(false);
+  }
+
   return (
     <header className="sticky top-0 z-50 bg-slate-900 text-white shadow-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="/" className="text-xl font-bold tracking-wide">
+        <Link href="/" className="text-xl font-bold tracking-wide" onClick={closeMobileMenu}>
           SK <span className="text-amber-500">TRADING</span>
         </Link>
+
         <nav className="hidden items-center gap-8 text-sm font-medium md:flex">
-          <Link href="/" className="hover:text-amber-500">Home</Link>
-          <Link href="/machines/injection-moulding" className="hover:text-amber-500">Machines</Link>
-          <Link href="/about" className="hover:text-amber-500">About</Link>
-          <Link href="/contact" className="hover:text-amber-500">Contact</Link>
+          <Link href="/" className="hover:text-amber-500">
+            Home
+          </Link>
+
+          <div
+            ref={dropdownRef}
+            className="relative"
+            onMouseEnter={() => setMachinesOpen(true)}
+            onMouseLeave={() => setMachinesOpen(false)}
+            onKeyDown={(e) => {
+              if (e.key === "Escape") setMachinesOpen(false);
+            }}
+          >
+            <Link
+              href="/machines"
+              className="flex items-center gap-1 hover:text-amber-500 focus:text-amber-500 focus:outline-none"
+              onFocus={() => setMachinesOpen(true)}
+            >
+              Machines
+              <ChevronDown
+                size={14}
+                className={`transition-transform duration-200 ${
+                  machinesOpen ? "rotate-180" : ""
+                }`}
+              />
+            </Link>
+
+            <div
+              className={`absolute left-0 top-full pt-2 transition-all duration-200 ${
+                machinesOpen
+                  ? "visible translate-y-0 opacity-100"
+                  : "invisible -translate-y-1 opacity-0"
+              }`}
+            >
+              <div className="w-64 rounded-md border border-slate-700 bg-slate-800 p-2 shadow-lg">
+                {machineLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="block rounded-md px-3 py-2 text-sm text-slate-200 hover:bg-slate-700 hover:text-amber-500"
+                    onClick={() => setMachinesOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <Link href="/about" className="hover:text-amber-500">
+            About
+          </Link>
+          <Link href="/contact" className="hover:text-amber-500">
+            Contact
+          </Link>
         </nav>
-        <a
-          href="tel:+910000000000"
-          className="hidden items-center gap-2 rounded-md bg-amber-500 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-amber-400 sm:flex"
-        >
-          <Phone size={16} />
-          Call Us
-        </a>
+
+        <div className="flex items-center gap-2">
+          <a
+            href="tel:+923004079337"
+            className="hidden items-center gap-2 rounded-md bg-amber-500 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-amber-400 sm:flex"
+          >
+            <Phone size={16} />
+            Call Us
+          </a>
+          <button
+            className="p-2 md:hidden"
+            aria-label="Toggle menu"
+            onClick={() => setMobileOpen((open) => !open)}
+          >
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
+
+      {mobileOpen && (
+        <div className="border-t border-slate-800 bg-slate-900 px-4 py-4 md:hidden">
+          <nav className="flex flex-col text-sm font-medium">
+            <Link href="/" className="py-2 hover:text-amber-500" onClick={closeMobileMenu}>
+              Home
+            </Link>
+
+            <div className="flex items-center justify-between">
+              <Link
+                href="/machines"
+                className="flex-1 py-2 hover:text-amber-500"
+                onClick={closeMobileMenu}
+              >
+                Machines
+              </Link>
+              <button
+                aria-label="Toggle machines submenu"
+                aria-expanded={mobileMachinesOpen}
+                className="p-2"
+                onClick={() => setMobileMachinesOpen((open) => !open)}
+              >
+                <ChevronDown
+                  size={18}
+                  className={`transition-transform duration-200 ${
+                    mobileMachinesOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+            </div>
+
+            <div
+              className={`overflow-hidden transition-all duration-200 ${
+                mobileMachinesOpen ? "max-h-40" : "max-h-0"
+              }`}
+            >
+              <div className="ml-4 flex flex-col border-l border-slate-700 pl-3">
+                {machineLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="py-2 text-sm text-slate-300 hover:text-amber-500"
+                    onClick={closeMobileMenu}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <Link href="/about" className="py-2 hover:text-amber-500" onClick={closeMobileMenu}>
+              About
+            </Link>
+            <Link href="/contact" className="py-2 hover:text-amber-500" onClick={closeMobileMenu}>
+              Contact
+            </Link>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
