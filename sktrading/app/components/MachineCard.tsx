@@ -4,7 +4,7 @@ import { Machine, categoryLabels } from "@/lib/machines";
 
 export default function MachineCard({ machine }: { machine: Machine }) {
   return (
-    <div className="flex flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition hover:shadow-md">
+    <div className="flex h-full flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition hover:shadow-md">
       <Link href={`/machines/${machine.id}`} className="flex flex-1 flex-col">
         <div className="relative h-48 w-full">
           <Image

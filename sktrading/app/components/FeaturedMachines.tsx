@@ -18,7 +18,9 @@ export default function FeaturedMachines() {
         <div className="-mx-4 flex gap-6 overflow-x-auto px-4 pb-4 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-4">
           {featured.map((machine) => (
             <div key={machine.id} className="min-w-[260px] flex-shrink-0 sm:min-w-0">
-              <MachineCard machine={machine} />
+              <div className="h-full">
+                <MachineCard machine={machine} />
+              </div>
             </div>
           ))}
         </div>
