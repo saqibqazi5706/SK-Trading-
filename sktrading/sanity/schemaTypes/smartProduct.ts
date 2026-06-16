@@ -22,11 +22,22 @@ export const smartProduct = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'group',
-      title: 'Group',
+      name: 'category',
+      title: 'Category',
       description:
-        'Optional. Use to cluster related items together on the page, e.g. "Servo Energy Saving System" for the complete system and its components (Motor, Oil Pump, Servo Drives).',
+        'The product type. For the Servo system, the complete system and its separately-sold components (Motor, Oil Pump, Servo Drives) all go under "Servo Energy Saving System".',
       type: 'string',
+      options: {
+        list: [
+          { title: 'PLC (Programmable Logic Controller)', value: 'PLC' },
+          { title: 'Servo Energy Saving System', value: 'Servo Energy Saving System' },
+          { title: 'Cards for PLC System', value: 'Cards for PLC System' },
+          { title: 'Lubrication Pump', value: 'Lubrication Pump' },
+          { title: 'Mould Clamps', value: 'Mould Clamps' },
+        ],
+        layout: 'dropdown',
+      },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'description',
@@ -97,7 +108,7 @@ export const smartProduct = defineType({
   preview: {
     select: {
       title: 'name',
-      subtitle: 'group',
+      subtitle: 'category',
       media: 'images.0',
     },
   },

@@ -1,4 +1,4 @@
-import MachineGrid from "../../components/MachineGrid";
+import MachineGrid from "@/app/components/MachineGrid";
 import { getMachinesByCategory } from "@/lib/sanity/queries";
 
 export default async function DieCastingPage() {

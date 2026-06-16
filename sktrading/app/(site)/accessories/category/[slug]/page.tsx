@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
-import AccessoryFilterBar from "../../../components/AccessoryFilterBar";
-import AccessoryGrid from "../../../components/AccessoryGrid";
+import AccessoryFilterBar from "@/app/components/AccessoryFilterBar";
+import AccessoryGrid from "@/app/components/AccessoryGrid";
 import {
   getAccessoriesByCategory,
   accessoryCategories,

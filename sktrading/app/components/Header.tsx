@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { Phone, ChevronDown, Menu, X } from "lucide-react";
+import { Phone, ChevronDown, Menu, X, Cpu } from "lucide-react";
 
 const machineLinks = [
   {
@@ -160,6 +160,13 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <Link
+            href="/smart-automation"
+            className="hidden items-center gap-2 rounded-md border border-sky-500 px-4 py-2 text-sm font-semibold text-sky-400 transition hover:bg-sky-500 hover:text-slate-950 lg:flex"
+          >
+            <Cpu size={16} />
+            Smart Automation
+          </Link>
           <a
             href="tel:+923004079337"
             className="hidden items-center gap-2 rounded-md bg-amber-500 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-amber-400 sm:flex"
@@ -273,6 +280,14 @@ export default function Header() {
             </Link>
             <Link href="/contact" className="py-2 hover:text-amber-500" onClick={closeMobileMenu}>
               Contact
+            </Link>
+            <Link
+              href="/smart-automation"
+              className="mt-3 flex items-center gap-2 rounded-md border border-sky-500 px-3 py-2 font-semibold text-sky-400"
+              onClick={closeMobileMenu}
+            >
+              <Cpu size={16} />
+              Smart Automation
             </Link>
           </nav>
         </div>

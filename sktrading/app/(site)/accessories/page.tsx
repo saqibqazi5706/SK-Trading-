@@ -1,5 +1,5 @@
-import AccessoryFilterBar from "../components/AccessoryFilterBar";
-import AccessoryGrid from "../components/AccessoryGrid";
+import AccessoryFilterBar from "@/app/components/AccessoryFilterBar";
+import AccessoryGrid from "@/app/components/AccessoryGrid";
 import { getAllAccessories } from "@/lib/sanity/accessories";
 
 export default async function AllAccessoriesPage() {

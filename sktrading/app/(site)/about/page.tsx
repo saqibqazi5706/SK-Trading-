@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import AboutHero from "../components/about/AboutHero";
-import CompanyStory from "../components/about/CompanyStory";
-import WhatWeDo from "../components/about/WhatWeDo";
-import WhyChooseUs from "../components/WhyChooseUs";
-import ProcessTimeline from "../components/about/ProcessTimeline";
-import AboutCTA from "../components/about/AboutCTA";
+import AboutHero from "@/app/components/about/AboutHero";
+import CompanyStory from "@/app/components/about/CompanyStory";
+import WhatWeDo from "@/app/components/about/WhatWeDo";
+import WhyChooseUs from "@/app/components/WhyChooseUs";
+import ProcessTimeline from "@/app/components/about/ProcessTimeline";
+import AboutCTA from "@/app/components/about/AboutCTA";
 
 export const metadata: Metadata = {
   title: "About Us | SK Trading",

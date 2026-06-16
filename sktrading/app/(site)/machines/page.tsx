@@ -1,4 +1,4 @@
-import MachinesExplorer from "../components/MachinesExplorer";
+import MachinesExplorer from "@/app/components/MachinesExplorer";
 import { getAllMachines } from "@/lib/sanity/queries";
 
 export default async function AllMachinesPage() {

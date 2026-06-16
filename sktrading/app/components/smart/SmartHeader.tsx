@@ -1,0 +1,75 @@
+"use client";
+
+import Link from "next/link";
+import { useState } from "react";
+import { Menu, X, ArrowLeft } from "lucide-react";
+import SmartLogo from "./SmartLogo";
+
+// In-page anchors (the Smart Automation site is a single page)
+const navLinks = [
+  { label: "Products", href: "#products" },
+  { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
+];
+
+export default function SmartHeader() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <header className="sticky top-0 z-50 bg-slate-950 text-white shadow-md">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <Link href="/smart-automation" onClick={() => setOpen(false)}>
+          <SmartLogo className="text-lg" />
+        </Link>
+
+        <nav className="hidden items-center gap-8 text-sm font-medium md:flex">
+          {navLinks.map((link) => (
+            <a key={link.href} href={link.href} className="hover:text-sky-400">
+              {link.label}
+            </a>
+          ))}
+          <Link
+            href="/"
+            className="flex items-center gap-1 text-xs text-slate-400 hover:text-sky-400"
+          >
+            <ArrowLeft size={14} />
+            SK Trading
+          </Link>
+        </nav>
+
+        <button
+          className="p-2 md:hidden"
+          aria-label="Toggle menu"
+          onClick={() => setOpen((o) => !o)}
+        >
+          {open ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {open && (
+        <div className="border-t border-slate-800 px-4 py-4 md:hidden">
+          <nav className="flex flex-col text-sm font-medium">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="py-2 hover:text-sky-400"
+                onClick={() => setOpen(false)}
+              >
+                {link.label}
+              </a>
+            ))}
+            <Link
+              href="/"
+              className="flex items-center gap-1 py-2 text-slate-400 hover:text-sky-400"
+              onClick={() => setOpen(false)}
+            >
+              <ArrowLeft size={14} />
+              Back to SK Trading
+            </Link>
+          </nav>
+        </div>
+      )}
+    </header>
+  );
+}

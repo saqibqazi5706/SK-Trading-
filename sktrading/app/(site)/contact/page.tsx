@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Phone, Mail, MapPin, Clock, Navigation } from "lucide-react";
-import ContactCTA from "../components/ContactCTA";
+import ContactCTA from "@/app/components/ContactCTA";
+import ContactPeople from "@/app/components/ContactPeople";
+import { skContacts } from "@/lib/contacts";
 
 const MAPS_LINK =
   "https://www.google.com/maps/dir/?api=1&destination=31.58603118569452,74.41868451822218";
@@ -98,6 +100,13 @@ export default function ContactPage() {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* Contact people */}
+      <section className="bg-slate-50 pb-4 sm:pb-6">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <ContactPeople people={skContacts} />
         </div>
       </section>
 

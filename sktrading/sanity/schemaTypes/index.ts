@@ -25,5 +25,12 @@ export const schema: {
       parameters: [{ name: 'category', type: 'string' }],
       value: (params: { category: string }) => ({ category: params.category }),
     },
+    {
+      id: 'smartProduct-by-category',
+      title: 'Smart Automation product by category',
+      schemaType: 'smartProduct',
+      parameters: [{ name: 'category', type: 'string' }],
+      value: (params: { category: string }) => ({ category: params.category }),
+    },
   ],
 }

@@ -1,6 +1,7 @@
 import type { StructureResolver } from 'sanity/structure'
 import { accessoryCategories } from '../lib/sanity/accessories'
 import { categoryBySlug } from '../lib/sanity/queries'
+import { smartProductCategories } from '../lib/sanity/smartProducts'
 
 const machineCategories = Object.entries(categoryBySlug).map(([slug, label]) => ({
   slug,
@@ -68,6 +69,30 @@ export const structure: StructureResolver = (S) =>
 
       S.divider(),
 
-      // Smart Automation products (flat list)
-      S.documentTypeListItem('smartProduct').title('Smart Automation Products'),
+      // Smart Automation products, grouped by category
+      S.listItem()
+        .title('Smart Automation Products')
+        .child(
+          S.list()
+            .title('Smart Automation Products')
+            .items(
+              smartProductCategories.map(({ slug, label }) =>
+                S.listItem()
+                  .title(label)
+                  .id(`smartProduct-${slug}`)
+                  .child(
+                    S.documentList()
+                      .title(label)
+                      .schemaType('smartProduct')
+                      .filter('_type == "smartProduct" && category == $category')
+                      .params({ category: label })
+                      .initialValueTemplates([
+                        S.initialValueTemplateItem('smartProduct-by-category', {
+                          category: label,
+                        }),
+                      ])
+                  )
+              )
+            )
+        ),
     ])
