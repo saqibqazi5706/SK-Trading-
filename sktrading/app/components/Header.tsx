@@ -15,19 +15,28 @@ const machineLinks = [
   },
 ];
 
+const accessoryLinks = [
+  { label: "Crusher", href: "/accessories/category/crusher" },
+  { label: "Mixer", href: "/accessories/category/mixer" },
+  { label: "Auto Loader", href: "/accessories/category/auto-loader" },
+  { label: "Hopper Dryer", href: "/accessories/category/hopper-dryer" },
+  { label: "Screw Air Compressors", href: "/accessories/category/screw-air-compressors" },
+  { label: "Piston Air Compressors", href: "/accessories/category/piston-air-compressors" },
+];
+
 export default function Header() {
   const [machinesOpen, setMachinesOpen] = useState(false);
+  const [accessoriesOpen, setAccessoriesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileMachinesOpen, setMobileMachinesOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [mobileAccessoriesOpen, setMobileAccessoriesOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
         setMachinesOpen(false);
+        setAccessoriesOpen(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -37,6 +46,7 @@ export default function Header() {
   function closeMobileMenu() {
     setMobileOpen(false);
     setMobileMachinesOpen(false);
+    setMobileAccessoriesOpen(false);
   }
 
   return (
@@ -46,13 +56,13 @@ export default function Header() {
           SK <span className="text-amber-500">TRADING</span>
         </Link>
 
-        <nav className="hidden items-center gap-8 text-sm font-medium md:flex">
+        <nav ref={navRef} className="hidden items-center gap-8 text-sm font-medium md:flex">
           <Link href="/" className="hover:text-amber-500">
             Home
           </Link>
 
+          {/* Machines dropdown */}
           <div
-            ref={dropdownRef}
             className="relative"
             onMouseEnter={() => setMachinesOpen(true)}
             onMouseLeave={() => setMachinesOpen(false)}
@@ -96,6 +106,51 @@ export default function Header() {
             </div>
           </div>
 
+          {/* Accessories dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setAccessoriesOpen(true)}
+            onMouseLeave={() => setAccessoriesOpen(false)}
+            onKeyDown={(e) => {
+              if (e.key === "Escape") setAccessoriesOpen(false);
+            }}
+          >
+            <Link
+              href="/accessories"
+              className="flex items-center gap-1 hover:text-amber-500 focus:text-amber-500 focus:outline-none"
+              onFocus={() => setAccessoriesOpen(true)}
+            >
+              Accessories
+              <ChevronDown
+                size={14}
+                className={`transition-transform duration-200 ${
+                  accessoriesOpen ? "rotate-180" : ""
+                }`}
+              />
+            </Link>
+
+            <div
+              className={`absolute left-0 top-full pt-2 transition-all duration-200 ${
+                accessoriesOpen
+                  ? "visible translate-y-0 opacity-100"
+                  : "invisible -translate-y-1 opacity-0"
+              }`}
+            >
+              <div className="w-56 rounded-md border border-slate-700 bg-slate-800 p-2 shadow-lg">
+                {accessoryLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="block rounded-md px-3 py-2 text-sm text-slate-200 hover:bg-slate-700 hover:text-amber-500"
+                    onClick={() => setAccessoriesOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
           <Link href="/about" className="hover:text-amber-500">
             About
           </Link>
@@ -129,6 +184,7 @@ export default function Header() {
               Home
             </Link>
 
+            {/* Machines (mobile accordion) */}
             <div className="flex items-center justify-between">
               <Link
                 href="/machines"
@@ -151,7 +207,6 @@ export default function Header() {
                 />
               </button>
             </div>
-
             <div
               className={`overflow-hidden transition-all duration-200 ${
                 mobileMachinesOpen ? "max-h-40" : "max-h-0"
@@ -159,6 +214,48 @@ export default function Header() {
             >
               <div className="ml-4 flex flex-col border-l border-slate-700 pl-3">
                 {machineLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="py-2 text-sm text-slate-300 hover:text-amber-500"
+                    onClick={closeMobileMenu}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Accessories (mobile accordion) */}
+            <div className="flex items-center justify-between">
+              <Link
+                href="/accessories"
+                className="flex-1 py-2 hover:text-amber-500"
+                onClick={closeMobileMenu}
+              >
+                Accessories
+              </Link>
+              <button
+                aria-label="Toggle accessories submenu"
+                aria-expanded={mobileAccessoriesOpen}
+                className="p-2"
+                onClick={() => setMobileAccessoriesOpen((open) => !open)}
+              >
+                <ChevronDown
+                  size={18}
+                  className={`transition-transform duration-200 ${
+                    mobileAccessoriesOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+            </div>
+            <div
+              className={`overflow-hidden transition-all duration-200 ${
+                mobileAccessoriesOpen ? "max-h-96" : "max-h-0"
+              }`}
+            >
+              <div className="ml-4 flex flex-col border-l border-slate-700 pl-3">
+                {accessoryLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}

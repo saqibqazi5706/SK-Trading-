@@ -22,7 +22,8 @@ export default function Footer() {
             </h4>
             <ul className="mt-3 space-y-2 text-sm">
               <li><Link href="/" className="hover:text-amber-500">Home</Link></li>
-              <li><Link href="/machines/injection-moulding" className="hover:text-amber-500">Machines</Link></li>
+              <li><Link href="/machines" className="hover:text-amber-500">Machines</Link></li>
+              <li><Link href="/accessories" className="hover:text-amber-500">Accessories</Link></li>
               <li><Link href="/about" className="hover:text-amber-500">About</Link></li>
               <li><Link href="/contact" className="hover:text-amber-500">Contact</Link></li>
             </ul>

@@ -1,7 +1,73 @@
-import type {StructureResolver} from 'sanity/structure'
+import type { StructureResolver } from 'sanity/structure'
+import { accessoryCategories } from '../lib/sanity/accessories'
+import { categoryBySlug } from '../lib/sanity/queries'
+
+const machineCategories = Object.entries(categoryBySlug).map(([slug, label]) => ({
+  slug,
+  label,
+}))
 
 // https://www.sanity.io/docs/structure-builder-cheat-sheet
 export const structure: StructureResolver = (S) =>
   S.list()
     .title('Content')
-    .items(S.documentTypeListItems())
+    .items([
+      // Machines, grouped by category
+      S.listItem()
+        .title('Machines')
+        .child(
+          S.list()
+            .title('Machines')
+            .items(
+              machineCategories.map(({ slug, label }) =>
+                S.listItem()
+                  .title(label)
+                  .id(`machine-${slug}`)
+                  .child(
+                    S.documentList()
+                      .title(label)
+                      .schemaType('machine')
+                      .filter('_type == "machine" && category == $category')
+                      .params({ category: label })
+                      .initialValueTemplates([
+                        S.initialValueTemplateItem('machine-by-category', {
+                          category: label,
+                        }),
+                      ])
+                  )
+              )
+            )
+        ),
+
+      // Accessories (SK Trading), grouped by category
+      S.listItem()
+        .title('Accessories')
+        .child(
+          S.list()
+            .title('Accessories')
+            .items(
+              accessoryCategories.map(({ slug, label }) =>
+                S.listItem()
+                  .title(label)
+                  .id(`accessory-${slug}`)
+                  .child(
+                    S.documentList()
+                      .title(label)
+                      .schemaType('accessory')
+                      .filter('_type == "accessory" && category == $category')
+                      .params({ category: label })
+                      .initialValueTemplates([
+                        S.initialValueTemplateItem('accessory-by-category', {
+                          category: label,
+                        }),
+                      ])
+                  )
+              )
+            )
+        ),
+
+      S.divider(),
+
+      // Smart Automation products (flat list)
+      S.documentTypeListItem('smartProduct').title('Smart Automation Products'),
+    ])
