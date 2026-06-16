@@ -1,9 +1,9 @@
 import MachineGrid from "../../components/MachineGrid";
-import { machines } from "@/lib/machines";
+import { getMachinesByCategory } from "@/lib/sanity/queries";
 
-export default function InjectionMouldingPage() {
-  const filtered = machines.filter(
-    (machine) => machine.category === "injection-moulding"
+export default async function InjectionMouldingPage() {
+  const machines = await getMachinesByCategory(
+    "Plastic Injection Moulding Machine"
   );
 
   return (
@@ -18,7 +18,7 @@ export default function InjectionMouldingPage() {
             from China and Japan.
           </p>
         </div>
-        <MachineGrid machines={filtered} />
+        <MachineGrid machines={machines} />
       </div>
     </main>
   );

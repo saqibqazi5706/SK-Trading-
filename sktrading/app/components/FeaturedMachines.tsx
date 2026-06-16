@@ -1,8 +1,12 @@
-import { machines } from "@/lib/machines";
+import { getFeaturedMachines } from "@/lib/sanity/queries";
 import MachineCard from "./MachineCard";
 
-export default function FeaturedMachines() {
-  const featured = machines.slice(0, 4);
+export default async function FeaturedMachines() {
+  const featured = await getFeaturedMachines();
+
+  if (featured.length === 0) {
+    return null;
+  }
 
   return (
     <section className="bg-white py-16 sm:py-20">
@@ -17,7 +21,7 @@ export default function FeaturedMachines() {
         </div>
         <div className="-mx-4 flex gap-6 overflow-x-auto px-4 pb-4 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-4">
           {featured.map((machine) => (
-            <div key={machine.id} className="min-w-[260px] flex-shrink-0 sm:min-w-0">
+            <div key={machine._id} className="min-w-[260px] flex-shrink-0 sm:min-w-0">
               <div className="h-full">
                 <MachineCard machine={machine} />
               </div>

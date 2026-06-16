@@ -1,7 +1,9 @@
 import MachinesExplorer from "../components/MachinesExplorer";
-import { machines } from "@/lib/machines";
+import { getAllMachines } from "@/lib/sanity/queries";
 
-export default function AllMachinesPage() {
+export default async function AllMachinesPage() {
+  const machines = await getAllMachines();
+
   return (
     <main className="bg-slate-50 py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

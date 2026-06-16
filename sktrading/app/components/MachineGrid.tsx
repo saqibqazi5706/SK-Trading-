@@ -1,4 +1,4 @@
-import { Machine } from "@/lib/machines";
+import { Machine } from "@/lib/sanity/queries";
 import MachineCard from "./MachineCard";
 
 export default function MachineGrid({ machines }: { machines: Machine[] }) {
@@ -13,7 +13,7 @@ export default function MachineGrid({ machines }: { machines: Machine[] }) {
   return (
     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {machines.map((machine) => (
-        <MachineCard key={machine.id} machine={machine} />
+        <MachineCard key={machine._id} machine={machine} />
       ))}
     </div>
   );

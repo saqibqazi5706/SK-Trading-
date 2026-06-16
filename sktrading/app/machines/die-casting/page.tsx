@@ -1,10 +1,8 @@
 import MachineGrid from "../../components/MachineGrid";
-import { machines } from "@/lib/machines";
+import { getMachinesByCategory } from "@/lib/sanity/queries";
 
-export default function DieCastingPage() {
-  const filtered = machines.filter(
-    (machine) => machine.category === "die-casting"
-  );
+export default async function DieCastingPage() {
+  const machines = await getMachinesByCategory("Aluminum Die Casting Machine");
 
   return (
     <main className="bg-slate-50 py-12 sm:py-16">
@@ -18,7 +16,7 @@ export default function DieCastingPage() {
             automotive and hardware applications.
           </p>
         </div>
-        <MachineGrid machines={filtered} />
+        <MachineGrid machines={machines} />
       </div>
     </main>
   );

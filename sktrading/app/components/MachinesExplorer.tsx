@@ -2,15 +2,15 @@
 
 import { useState } from "react";
 import { Filter } from "lucide-react";
-import { Machine, MachineCategory } from "@/lib/machines";
+import { Machine, MachineCategory } from "@/lib/sanity/queries";
 import MachineGrid from "./MachineGrid";
 
 type FilterValue = "all" | MachineCategory;
 
 const filters: { label: string; value: FilterValue }[] = [
   { label: "All", value: "all" },
-  { label: "Injection Moulding", value: "injection-moulding" },
-  { label: "Die Casting", value: "die-casting" },
+  { label: "Injection Moulding", value: "Plastic Injection Moulding Machine" },
+  { label: "Die Casting", value: "Aluminum Die Casting Machine" },
 ];
 
 export default function MachinesExplorer({ machines }: { machines: Machine[] }) {
