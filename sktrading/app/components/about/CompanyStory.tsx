@@ -1,11 +1,11 @@
 export default function CompanyStory() {
   return (
-    <section className="bg-white py-16 sm:py-20">
+    <section className="bg-white dark:bg-slate-900 py-16 sm:py-20">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
+        <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-50 sm:text-3xl">
           Our Story
         </h2>
-        <div className="mt-6 space-y-5 text-base leading-7 text-slate-600">
+        <div className="mt-6 space-y-5 text-base leading-7 text-slate-600 dark:text-slate-300">
           <p>
             SK Trading was founded with a simple vision — to give local
             manufacturers access to reliable, affordable industrial machinery

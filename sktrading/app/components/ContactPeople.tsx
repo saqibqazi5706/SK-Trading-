@@ -12,15 +12,15 @@ export default function ContactPeople({
   subtitle?: string;
   variant?: "light" | "dark";
 }) {
-  const accent = variant === "dark" ? "text-sky-400" : "text-amber-500";
-  const accentBg = variant === "dark" ? "bg-sky-500/10" : "bg-amber-500/10";
-  const headingColor = variant === "dark" ? "text-white" : "text-slate-900";
-  const subColor = variant === "dark" ? "text-slate-300" : "text-slate-600";
+  const accent = variant === "dark" ? "text-sky-400" : "text-red-500";
+  const accentBg = variant === "dark" ? "bg-sky-500/10" : "bg-red-500/10";
+  const headingColor = variant === "dark" ? "text-white" : "text-slate-900 dark:text-slate-50";
+  const subColor = variant === "dark" ? "text-slate-300" : "text-slate-600 dark:text-slate-300";
   const cardClass =
     variant === "dark"
       ? "border-slate-800 bg-slate-900"
-      : "border-slate-200 bg-white";
-  const nameColor = variant === "dark" ? "text-white" : "text-slate-900";
+      : "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900";
+  const nameColor = variant === "dark" ? "text-white" : "text-slate-900 dark:text-slate-50";
 
   return (
     <div>

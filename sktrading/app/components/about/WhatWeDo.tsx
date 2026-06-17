@@ -17,13 +17,13 @@ const offerings = [
 
 export default function WhatWeDo() {
   return (
-    <section className="bg-slate-50 py-16 sm:py-20">
+    <section className="bg-slate-50 dark:bg-slate-950 py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 text-center">
-          <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-50 sm:text-3xl">
             What We Do
           </h2>
-          <p className="mt-2 text-slate-600">
+          <p className="mt-2 text-slate-600 dark:text-slate-300">
             Two core categories, sourced and inspected to keep your production
             running.
           </p>
@@ -32,15 +32,15 @@ export default function WhatWeDo() {
           {offerings.map(({ icon: Icon, title, description }) => (
             <div
               key={title}
-              className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm"
+              className="rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-500/10">
-                <Icon className="text-amber-500" size={24} />
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-500/10">
+                <Icon className="text-red-500" size={24} />
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-slate-900">
+              <h3 className="mt-4 text-lg font-semibold text-slate-900 dark:text-slate-50">
                 {title}
               </h3>
-              <p className="mt-2 text-sm leading-6 text-slate-600">
+              <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
                 {description}
               </p>
             </div>

@@ -3,12 +3,13 @@ import { type SchemaTypeDefinition, type Template } from 'sanity'
 import { machine } from './machine'
 import { accessory } from './accessory'
 import { smartProduct } from './smartProduct'
+import { taskMachine } from './taskMachine'
 
 export const schema: {
   types: SchemaTypeDefinition[]
   templates: (prev: Template[]) => Template[]
 } = {
-  types: [machine, accessory, smartProduct],
+  types: [machine, accessory, smartProduct, taskMachine],
   templates: (prev) => [
     ...prev,
     {

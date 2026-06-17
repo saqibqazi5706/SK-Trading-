@@ -1,4 +1,4 @@
-import { Mail, MapPin, MessageCircle, Cpu, Zap, Gauge, Wrench } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Navigation, Cpu, Zap, Gauge, Wrench } from "lucide-react";
 import {
   getAllSmartProducts,
   smartProductCategories,
@@ -7,6 +7,9 @@ import SmartLogo from "@/app/components/smart/SmartLogo";
 import SmartProductCard from "@/app/components/smart/SmartProductCard";
 import ContactPeople from "@/app/components/ContactPeople";
 import { smartContacts } from "@/lib/contacts";
+
+const MAPS_LINK =
+  "https://www.google.com/maps/dir/?api=1&destination=31.58603118569452,74.41868451822218";
 
 const highlights = [
   { icon: Cpu, title: "PLC Systems", text: "Programmable logic controllers and PLC cards." },
@@ -56,7 +59,7 @@ export default async function SmartAutomationHome() {
       </section>
 
       {/* Highlights */}
-      <section className="bg-white py-14">
+      <section className="bg-white dark:bg-slate-900 py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {highlights.map(({ icon: Icon, title, text }) => (
@@ -64,8 +67,8 @@ export default async function SmartAutomationHome() {
                 <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-sky-500/10">
                   <Icon className="text-sky-500" size={28} />
                 </div>
-                <h3 className="mt-4 text-base font-semibold text-slate-900">{title}</h3>
-                <p className="mt-2 text-sm text-slate-600">{text}</p>
+                <h3 className="mt-4 text-base font-semibold text-slate-900 dark:text-slate-50">{title}</h3>
+                <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{text}</p>
               </div>
             ))}
           </div>
@@ -73,10 +76,10 @@ export default async function SmartAutomationHome() {
       </section>
 
       {/* About */}
-      <section id="about" className="scroll-mt-20 bg-slate-50 py-16 sm:py-20">
+      <section id="about" className="scroll-mt-20 bg-slate-50 dark:bg-slate-950 py-16 sm:py-20">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">About Us</h2>
-          <p className="mt-4 text-base leading-7 text-slate-600 sm:text-lg">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-50 sm:text-3xl">About Us</h2>
+          <p className="mt-4 text-base leading-7 text-slate-600 dark:text-slate-300 sm:text-lg">
             Smart Automation is a company by SK Trading, focused exclusively on
             brand new automation products for the plastic and industrial
             machinery sector. From PLC systems and energy-saving servo solutions
@@ -84,20 +87,20 @@ export default async function SmartAutomationHome() {
             in a range of sizes — backed by the trust, service, and technical
             expertise of SK Trading.
           </p>
-          <p className="mt-4 text-sm text-slate-500">
+          <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">
             {/* Placeholder copy — replace with your final About text. */}
           </p>
         </div>
       </section>
 
       {/* Products */}
-      <section id="products" className="scroll-mt-20 bg-white py-16 sm:py-20">
+      <section id="products" className="scroll-mt-20 bg-white dark:bg-slate-900 py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 text-center">
-            <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-50 sm:text-3xl">
               Our Products
             </h2>
-            <p className="mt-2 text-slate-600">
+            <p className="mt-2 text-slate-600 dark:text-slate-300">
               Brand new automation products, available in multiple sizes.
             </p>
           </div>
@@ -105,11 +108,11 @@ export default async function SmartAutomationHome() {
           <div className="space-y-12">
             {grouped.map((group) => (
               <div key={group.category}>
-                <h3 className="mb-5 border-l-4 border-sky-500 pl-3 text-lg font-bold text-slate-900">
+                <h3 className="mb-5 border-l-4 border-sky-500 pl-3 text-lg font-bold text-slate-900 dark:text-slate-50">
                   {group.category}
                 </h3>
                 {group.items.length === 0 ? (
-                  <p className="rounded-lg border border-dashed border-slate-200 bg-slate-50 py-8 text-center text-sm text-slate-400">
+                  <p className="rounded-lg border border-dashed border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 py-8 text-center text-sm text-slate-400">
                     Products coming soon.
                   </p>
                 ) : (
@@ -155,9 +158,18 @@ export default async function SmartAutomationHome() {
               </li>
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="mt-0.5 text-sky-400" />
-                Sharif Garden, Lahore, Pakistan
+                SK Trading, Rajba Rd, Sharif Garden, Lahore, Pakistan
               </li>
             </ul>
+            <a
+              href={MAPS_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2 rounded-md bg-sky-500 px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-sky-400"
+            >
+              <Navigation size={16} />
+              Get Directions
+            </a>
           </div>
 
           <div className="mt-12 lg:col-span-2">
@@ -167,6 +179,20 @@ export default async function SmartAutomationHome() {
               subtitle="Reach our team directly by call or WhatsApp."
               variant="dark"
             />
+          </div>
+
+          <div className="mt-12 lg:col-span-2">
+            <div className="overflow-hidden rounded-lg border border-slate-800 shadow-sm">
+              <iframe
+                title="Smart Automation location"
+                src="https://www.google.com/maps?q=31.58603118569452,74.41868451822218&z=17&output=embed"
+                width="100%"
+                height="320"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="block w-full"
+              />
+            </div>
           </div>
         </div>
       </section>

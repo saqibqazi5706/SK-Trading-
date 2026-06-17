@@ -3,11 +3,11 @@ import HeroSlideshow from "./HeroSlideshow";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-slate-900 text-white">
+    <section className="relative overflow-hidden bg-red-950 text-white">
       <HeroSlideshow />
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
         <div className="max-w-3xl">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-amber-500">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-red-500">
             SK Trading
           </p>
           <h1 className="text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">
@@ -22,13 +22,13 @@ export default function Hero() {
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <Link
               href="/machines/injection-moulding"
-              className="rounded-md bg-amber-500 px-6 py-3 text-center text-sm font-semibold text-slate-900 transition hover:bg-amber-400"
+              className="rounded-md bg-red-500 px-6 py-3 text-center text-sm font-semibold text-slate-900 dark:text-slate-50 transition hover:bg-red-400"
             >
               View Machines
             </Link>
             <Link
               href="/contact"
-              className="rounded-md border border-slate-600 px-6 py-3 text-center text-sm font-semibold text-white transition hover:border-amber-500 hover:text-amber-500"
+              className="rounded-md border border-slate-600 px-6 py-3 text-center text-sm font-semibold text-white transition hover:border-red-500 hover:text-red-500"
             >
               Contact Us
             </Link>

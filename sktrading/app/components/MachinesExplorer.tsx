@@ -24,7 +24,7 @@ export default function MachinesExplorer({ machines }: { machines: Machine[] }) 
   return (
     <div>
       <div className="mb-8 flex flex-wrap items-center gap-3">
-        <span className="flex items-center gap-1 text-sm font-medium text-slate-500">
+        <span className="flex items-center gap-1 text-sm font-medium text-slate-500 dark:text-slate-400">
           <Filter size={16} />
           Filter:
         </span>
@@ -35,7 +35,7 @@ export default function MachinesExplorer({ machines }: { machines: Machine[] }) 
             className={`rounded-full px-4 py-1.5 text-sm font-medium transition ${
               activeFilter === filter.value
                 ? "bg-slate-900 text-white"
-                : "bg-white text-slate-600 hover:bg-slate-100"
+                : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-100"
             }`}
           >
             {filter.label}

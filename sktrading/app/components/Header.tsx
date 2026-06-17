@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { Phone, ChevronDown, Menu, X, Cpu } from "lucide-react";
+import { Phone, ChevronDown, Menu, X, Cpu, Factory } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 const machineLinks = [
   {
@@ -50,14 +51,14 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 bg-slate-900 text-white shadow-md">
+    <header className="sticky top-0 z-50 bg-red-950 text-white shadow-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" className="text-xl font-bold tracking-wide" onClick={closeMobileMenu}>
-          SK <span className="text-amber-500">TRADING</span>
+          SK <span className="text-red-500">TRADING</span>
         </Link>
 
         <nav ref={navRef} className="hidden items-center gap-8 text-sm font-medium md:flex">
-          <Link href="/" className="hover:text-amber-500">
+          <Link href="/" className="hover:text-red-500">
             Home
           </Link>
 
@@ -72,7 +73,7 @@ export default function Header() {
           >
             <Link
               href="/machines"
-              className="flex items-center gap-1 hover:text-amber-500 focus:text-amber-500 focus:outline-none"
+              className="flex items-center gap-1 hover:text-red-500 focus:text-red-500 focus:outline-none"
               onFocus={() => setMachinesOpen(true)}
             >
               Machines
@@ -91,12 +92,12 @@ export default function Header() {
                   : "invisible -translate-y-1 opacity-0"
               }`}
             >
-              <div className="w-64 rounded-md border border-slate-700 bg-slate-800 p-2 shadow-lg">
+              <div className="w-64 rounded-md border border-red-900 bg-red-900 p-2 shadow-lg">
                 {machineLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="block rounded-md px-3 py-2 text-sm text-slate-200 hover:bg-slate-700 hover:text-amber-500"
+                    className="block rounded-md px-3 py-2 text-sm text-slate-200 hover:bg-red-800 hover:text-red-500"
                     onClick={() => setMachinesOpen(false)}
                   >
                     {link.label}
@@ -117,7 +118,7 @@ export default function Header() {
           >
             <Link
               href="/accessories"
-              className="flex items-center gap-1 hover:text-amber-500 focus:text-amber-500 focus:outline-none"
+              className="flex items-center gap-1 hover:text-red-500 focus:text-red-500 focus:outline-none"
               onFocus={() => setAccessoriesOpen(true)}
             >
               Accessories
@@ -136,12 +137,12 @@ export default function Header() {
                   : "invisible -translate-y-1 opacity-0"
               }`}
             >
-              <div className="w-56 rounded-md border border-slate-700 bg-slate-800 p-2 shadow-lg">
+              <div className="w-56 rounded-md border border-red-900 bg-red-900 p-2 shadow-lg">
                 {accessoryLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="block rounded-md px-3 py-2 text-sm text-slate-200 hover:bg-slate-700 hover:text-amber-500"
+                    className="block rounded-md px-3 py-2 text-sm text-slate-200 hover:bg-red-800 hover:text-red-500"
                     onClick={() => setAccessoriesOpen(false)}
                   >
                     {link.label}
@@ -151,15 +152,23 @@ export default function Header() {
             </div>
           </div>
 
-          <Link href="/about" className="hover:text-amber-500">
+          <Link href="/about" className="hover:text-red-500">
             About
           </Link>
-          <Link href="/contact" className="hover:text-amber-500">
+          <Link href="/contact" className="hover:text-red-500">
             Contact
           </Link>
         </nav>
 
         <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <Link
+            href="/task"
+            className="hidden items-center gap-2 rounded-md border border-red-500 px-4 py-2 text-sm font-semibold text-red-500 transition hover:bg-red-500 hover:text-white lg:flex"
+          >
+            <Factory size={16} />
+            Task
+          </Link>
           <Link
             href="/smart-automation"
             className="hidden items-center gap-2 rounded-md border border-sky-500 px-4 py-2 text-sm font-semibold text-sky-400 transition hover:bg-sky-500 hover:text-slate-950 lg:flex"
@@ -169,7 +178,7 @@ export default function Header() {
           </Link>
           <a
             href="tel:+923004079337"
-            className="hidden items-center gap-2 rounded-md bg-amber-500 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-amber-400 sm:flex"
+            className="hidden items-center gap-2 rounded-md bg-red-500 px-4 py-2 text-sm font-semibold text-slate-900 dark:text-slate-50 transition hover:bg-red-400 sm:flex"
           >
             <Phone size={16} />
             Call Us
@@ -185,9 +194,9 @@ export default function Header() {
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-slate-800 bg-slate-900 px-4 py-4 md:hidden">
+        <div className="border-t border-red-900 bg-red-950 px-4 py-4 md:hidden">
           <nav className="flex flex-col text-sm font-medium">
-            <Link href="/" className="py-2 hover:text-amber-500" onClick={closeMobileMenu}>
+            <Link href="/" className="py-2 hover:text-red-500" onClick={closeMobileMenu}>
               Home
             </Link>
 
@@ -195,7 +204,7 @@ export default function Header() {
             <div className="flex items-center justify-between">
               <Link
                 href="/machines"
-                className="flex-1 py-2 hover:text-amber-500"
+                className="flex-1 py-2 hover:text-red-500"
                 onClick={closeMobileMenu}
               >
                 Machines
@@ -219,12 +228,12 @@ export default function Header() {
                 mobileMachinesOpen ? "max-h-40" : "max-h-0"
               }`}
             >
-              <div className="ml-4 flex flex-col border-l border-slate-700 pl-3">
+              <div className="ml-4 flex flex-col border-l border-red-900 pl-3">
                 {machineLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="py-2 text-sm text-slate-300 hover:text-amber-500"
+                    className="py-2 text-sm text-slate-300 hover:text-red-500"
                     onClick={closeMobileMenu}
                   >
                     {link.label}
@@ -237,7 +246,7 @@ export default function Header() {
             <div className="flex items-center justify-between">
               <Link
                 href="/accessories"
-                className="flex-1 py-2 hover:text-amber-500"
+                className="flex-1 py-2 hover:text-red-500"
                 onClick={closeMobileMenu}
               >
                 Accessories
@@ -261,12 +270,12 @@ export default function Header() {
                 mobileAccessoriesOpen ? "max-h-96" : "max-h-0"
               }`}
             >
-              <div className="ml-4 flex flex-col border-l border-slate-700 pl-3">
+              <div className="ml-4 flex flex-col border-l border-red-900 pl-3">
                 {accessoryLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="py-2 text-sm text-slate-300 hover:text-amber-500"
+                    className="py-2 text-sm text-slate-300 hover:text-red-500"
                     onClick={closeMobileMenu}
                   >
                     {link.label}
@@ -275,15 +284,23 @@ export default function Header() {
               </div>
             </div>
 
-            <Link href="/about" className="py-2 hover:text-amber-500" onClick={closeMobileMenu}>
+            <Link href="/about" className="py-2 hover:text-red-500" onClick={closeMobileMenu}>
               About
             </Link>
-            <Link href="/contact" className="py-2 hover:text-amber-500" onClick={closeMobileMenu}>
+            <Link href="/contact" className="py-2 hover:text-red-500" onClick={closeMobileMenu}>
               Contact
             </Link>
             <Link
+              href="/task"
+              className="mt-3 flex items-center gap-2 rounded-md border border-red-500 px-3 py-2 font-semibold text-red-500"
+              onClick={closeMobileMenu}
+            >
+              <Factory size={16} />
+              Task
+            </Link>
+            <Link
               href="/smart-automation"
-              className="mt-3 flex items-center gap-2 rounded-md border border-sky-500 px-3 py-2 font-semibold text-sky-400"
+              className="mt-2 flex items-center gap-2 rounded-md border border-sky-500 px-3 py-2 font-semibold text-sky-400"
               onClick={closeMobileMenu}
             >
               <Cpu size={16} />

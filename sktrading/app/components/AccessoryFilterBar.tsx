@@ -6,7 +6,7 @@ const tabClass = (active: boolean) =>
   `rounded-full px-4 py-1.5 text-sm font-medium transition ${
     active
       ? "bg-slate-900 text-white"
-      : "bg-white text-slate-600 hover:bg-slate-100"
+      : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-100"
   }`;
 
 // activeSlug is "all" for the main accessories page, or a category slug
@@ -17,7 +17,7 @@ export default function AccessoryFilterBar({
 }) {
   return (
     <div className="mb-8 flex flex-wrap items-center gap-3">
-      <span className="flex items-center gap-1 text-sm font-medium text-slate-500">
+      <span className="flex items-center gap-1 text-sm font-medium text-slate-500 dark:text-slate-400">
         <Filter size={16} />
         Filter:
       </span>

@@ -8,7 +8,7 @@ export default function AccessoryGrid({
 }) {
   if (accessories.length === 0) {
     return (
-      <p className="py-12 text-center text-sm text-slate-500">
+      <p className="py-12 text-center text-sm text-slate-500 dark:text-slate-400">
         No accessories found in this category right now.
       </p>
     );

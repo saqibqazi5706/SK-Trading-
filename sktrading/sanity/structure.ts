@@ -69,6 +69,9 @@ export const structure: StructureResolver = (S) =>
 
       S.divider(),
 
+      // Task brand machines (flat list of models)
+      S.documentTypeListItem('taskMachine').title('Task Machines'),
+
       // Smart Automation products, grouped by category
       S.listItem()
         .title('Smart Automation Products')

@@ -35,13 +35,13 @@ const steps = [
 
 export default function ProcessTimeline() {
   return (
-    <section className="bg-white py-16 sm:py-20">
+    <section className="bg-white dark:bg-slate-900 py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
-          <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-50 sm:text-3xl">
             How It Works
           </h2>
-          <p className="mt-2 text-slate-600">
+          <p className="mt-2 text-slate-600 dark:text-slate-300">
             A simple, transparent process from sourcing to support.
           </p>
         </div>
@@ -55,14 +55,14 @@ export default function ProcessTimeline() {
               )}
               <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-slate-900 text-white">
                 <Icon size={24} />
-                <span className="absolute -right-1 -top-1 flex h-6 w-6 items-center justify-center rounded-full bg-amber-500 text-xs font-bold text-slate-900">
+                <span className="absolute -right-1 -top-1 flex h-6 w-6 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-slate-900 dark:text-slate-50">
                   {index + 1}
                 </span>
               </div>
-              <h3 className="mt-4 text-base font-semibold text-slate-900">
+              <h3 className="mt-4 text-base font-semibold text-slate-900 dark:text-slate-50">
                 {title}
               </h3>
-              <p className="mt-2 text-sm leading-6 text-slate-600">
+              <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
                 {description}
               </p>
             </div>

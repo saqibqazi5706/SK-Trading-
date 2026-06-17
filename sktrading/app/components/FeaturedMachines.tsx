@@ -9,13 +9,13 @@ export default async function FeaturedMachines() {
   }
 
   return (
-    <section className="bg-white py-16 sm:py-20">
+    <section className="bg-white dark:bg-slate-900 py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 text-center">
-          <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-50 sm:text-3xl">
             Featured Machines
           </h2>
-          <p className="mt-2 text-slate-600">
+          <p className="mt-2 text-slate-600 dark:text-slate-300">
             A few examples from our current stock.
           </p>
         </div>

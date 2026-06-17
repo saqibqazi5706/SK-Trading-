@@ -4,7 +4,7 @@ import MachineCard from "./MachineCard";
 export default function MachineGrid({ machines }: { machines: Machine[] }) {
   if (machines.length === 0) {
     return (
-      <p className="py-12 text-center text-sm text-slate-500">
+      <p className="py-12 text-center text-sm text-slate-500 dark:text-slate-400">
         No machines found in this category right now.
       </p>
     );

@@ -19,19 +19,19 @@ const categories = [
     title: "Brand New Machines - Task",
     description:
       "Brand new Plastic Injection Moulding Machines manufactured under our own brand, Task, and imported directly to Pakistan.",
-    href: "/machines/task-new",
+    href: "/task",
   },
 ];
 
 export default function Categories() {
   return (
-    <section className="bg-slate-50 py-16 sm:py-20">
+    <section className="bg-slate-50 dark:bg-slate-950 py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 text-center">
-          <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-50 sm:text-3xl">
             Our Machine Categories
           </h2>
-          <p className="mt-2 text-slate-600">
+          <p className="mt-2 text-slate-600 dark:text-slate-300">
             Browse our range of inspected, ready-to-ship industrial machines.
           </p>
         </div>
@@ -39,7 +39,7 @@ export default function Categories() {
           {categories.map((cat) => (
             <div
               key={cat.title}
-              className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition hover:shadow-md"
+              className="overflow-hidden rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm transition hover:shadow-md"
             >
               <div className="relative h-56 w-full">
                 <Image
@@ -50,15 +50,15 @@ export default function Categories() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-semibold text-slate-900">
+                <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-50">
                   {cat.title}
                 </h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">
+                <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
                   {cat.description}
                 </p>
                 <Link
                   href={cat.href}
-                  className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-amber-600 hover:text-amber-700"
+                  className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-red-600 hover:text-red-700"
                 >
                   View Machines <ArrowRight size={16} />
                 </Link>
