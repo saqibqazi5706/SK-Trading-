@@ -17,10 +17,10 @@ export default function TaskHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-red-950 text-white shadow-md">
+    <header className="sticky top-0 z-50 bg-slate-900 text-white shadow-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/task" onClick={() => setOpen(false)}>
-          <TaskLogo className="text-lg" />
+          <TaskLogo />
         </Link>
 
         <nav className="hidden items-center gap-8 text-sm font-medium md:flex">
@@ -51,7 +51,7 @@ export default function TaskHeader() {
       </div>
 
       {open && (
-        <div className="border-t border-red-900 px-4 py-4 md:hidden">
+        <div className="border-t border-slate-800 px-4 py-4 md:hidden">
           <nav className="flex flex-col text-sm font-medium">
             {navLinks.map((link) => (
               <a

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SmartHeader from "@/app/components/smart/SmartHeader";
 import SmartFooter from "@/app/components/smart/SmartFooter";
+import FloatingWhatsApp from "@/app/components/FloatingWhatsApp";
 
 export const metadata: Metadata = {
   title: "Smart Automation | Brand New PLC & Servo Energy Saving Systems",
@@ -18,6 +19,7 @@ export default function SmartAutomationLayout({
       <SmartHeader />
       {children}
       <SmartFooter />
+      <FloatingWhatsApp />
     </>
   );
 }

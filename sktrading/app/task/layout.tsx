@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import TaskHeader from "@/app/components/task/TaskHeader";
 import TaskFooter from "@/app/components/task/TaskFooter";
+import FloatingWhatsApp from "@/app/components/FloatingWhatsApp";
 
 export const metadata: Metadata = {
   title: "Task | Brand New Plastic Injection Moulding Machines",
@@ -18,6 +19,7 @@ export default function TaskLayout({
       <TaskHeader />
       {children}
       <TaskFooter />
+      <FloatingWhatsApp />
     </>
   );
 }

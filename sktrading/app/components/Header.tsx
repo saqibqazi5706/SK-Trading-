@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Phone, ChevronDown, Menu, X, Cpu, Factory } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
+import SkLogo from "./SkLogo";
 
 const machineLinks = [
   {
@@ -51,10 +52,10 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 bg-red-950 text-white shadow-md">
+    <header className="sticky top-0 z-50 bg-slate-900 text-white shadow-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="/" className="text-xl font-bold tracking-wide" onClick={closeMobileMenu}>
-          SK <span className="text-red-500">TRADING</span>
+        <Link href="/" onClick={closeMobileMenu}>
+          <SkLogo className="h-10" />
         </Link>
 
         <nav ref={navRef} className="hidden items-center gap-8 text-sm font-medium md:flex">
@@ -92,12 +93,12 @@ export default function Header() {
                   : "invisible -translate-y-1 opacity-0"
               }`}
             >
-              <div className="w-64 rounded-md border border-red-900 bg-red-900 p-2 shadow-lg">
+              <div className="w-64 rounded-md border border-slate-800 bg-slate-800 p-2 shadow-lg">
                 {machineLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="block rounded-md px-3 py-2 text-sm text-slate-200 hover:bg-red-800 hover:text-red-500"
+                    className="block rounded-md px-3 py-2 text-sm text-slate-200 hover:bg-slate-700 hover:text-red-500"
                     onClick={() => setMachinesOpen(false)}
                   >
                     {link.label}
@@ -137,12 +138,12 @@ export default function Header() {
                   : "invisible -translate-y-1 opacity-0"
               }`}
             >
-              <div className="w-56 rounded-md border border-red-900 bg-red-900 p-2 shadow-lg">
+              <div className="w-56 rounded-md border border-slate-800 bg-slate-800 p-2 shadow-lg">
                 {accessoryLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="block rounded-md px-3 py-2 text-sm text-slate-200 hover:bg-red-800 hover:text-red-500"
+                    className="block rounded-md px-3 py-2 text-sm text-slate-200 hover:bg-slate-700 hover:text-red-500"
                     onClick={() => setAccessoriesOpen(false)}
                   >
                     {link.label}
@@ -194,7 +195,7 @@ export default function Header() {
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-red-900 bg-red-950 px-4 py-4 md:hidden">
+        <div className="border-t border-slate-800 bg-slate-900 px-4 py-4 md:hidden">
           <nav className="flex flex-col text-sm font-medium">
             <Link href="/" className="py-2 hover:text-red-500" onClick={closeMobileMenu}>
               Home
@@ -228,7 +229,7 @@ export default function Header() {
                 mobileMachinesOpen ? "max-h-40" : "max-h-0"
               }`}
             >
-              <div className="ml-4 flex flex-col border-l border-red-900 pl-3">
+              <div className="ml-4 flex flex-col border-l border-slate-800 pl-3">
                 {machineLinks.map((link) => (
                   <Link
                     key={link.href}
@@ -270,7 +271,7 @@ export default function Header() {
                 mobileAccessoriesOpen ? "max-h-96" : "max-h-0"
               }`}
             >
-              <div className="ml-4 flex flex-col border-l border-red-900 pl-3">
+              <div className="ml-4 flex flex-col border-l border-slate-800 pl-3">
                 {accessoryLinks.map((link) => (
                   <Link
                     key={link.href}

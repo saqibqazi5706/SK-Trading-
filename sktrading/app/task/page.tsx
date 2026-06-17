@@ -19,9 +19,9 @@ export default async function TaskHome() {
   return (
     <main>
       {/* Hero */}
-      <section className="bg-red-950 text-white">
+      <section className="bg-slate-900 text-white">
         <div className="mx-auto max-w-7xl px-4 py-20 text-center sm:px-6 sm:py-28 lg:px-8">
-          <TaskLogo className="justify-center text-2xl sm:text-3xl" />
+          <TaskLogo className="h-20" />
           <h1 className="mt-6 text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">
             Brand New Injection Moulding Machines
           </h1>
@@ -106,7 +106,7 @@ export default async function TaskHome() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="scroll-mt-20 bg-red-950 py-16 text-white sm:py-20">
+      <section id="contact" className="scroll-mt-20 bg-slate-900 py-16 text-white sm:py-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>

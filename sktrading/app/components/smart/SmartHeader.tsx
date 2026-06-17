@@ -20,7 +20,7 @@ export default function SmartHeader() {
     <header className="sticky top-0 z-50 bg-slate-950 text-white shadow-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/smart-automation" onClick={() => setOpen(false)}>
-          <SmartLogo className="text-lg" />
+          <SmartLogo />
         </Link>
 
         <nav className="hidden items-center gap-8 text-sm font-medium md:flex">

@@ -16,9 +16,9 @@ export const skContacts: ContactPerson[] = [
 
 // Smart Automation contacts — replace with real names/numbers
 export const smartContacts: ContactPerson[] = [
-  { name: "Contact Person 1", role: "Sales", phone: "923004079337" },
-  { name: "Contact Person 2", role: "Technical", phone: "923004079337" },
-  { name: "Contact Person 3", role: "Support", phone: "923004079337" },
+  { name: "Kashif Qazi", role: "Sales", phone: "923004079337" },
+  { name: "Majid Ashiq", role: "Technical", phone: "923244670811" },
+  { name: "Ehsan Riaz", role: "Support", phone: "923333276456" },
 ];
 
 export function formatPhone(num: string): string {

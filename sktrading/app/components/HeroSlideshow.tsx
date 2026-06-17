@@ -33,7 +33,7 @@ export default function HeroSlideshow() {
           }`}
         />
       ))}
-      <div className="absolute inset-0 bg-red-950/85" />
+      <div className="absolute inset-0 bg-slate-900/85" />
     </div>
   );
 }

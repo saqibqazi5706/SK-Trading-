@@ -8,7 +8,7 @@ export default function TaskFooter() {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-8 sm:grid-cols-3">
           <div>
-            <TaskLogo className="text-lg text-white" />
+            <TaskLogo />
             <p className="mt-3 text-sm text-slate-400">
               Brand new Plastic Injection Moulding Machines manufactured under
               our own brand, Task, and imported by SK Trading.

@@ -33,7 +33,7 @@ export default async function SmartAutomationHome() {
       {/* Hero */}
       <section className="bg-slate-950 text-white">
         <div className="mx-auto max-w-7xl px-4 py-20 text-center sm:px-6 sm:py-28 lg:px-8">
-          <SmartLogo className="justify-center text-2xl sm:text-3xl" />
+          <SmartLogo className="h-20" />
           <h1 className="mt-6 text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">
             Brand New Automation Solutions
           </h1>

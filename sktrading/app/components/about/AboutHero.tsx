@@ -1,6 +1,6 @@
 export default function AboutHero() {
   return (
-    <section className="bg-red-950 text-white">
+    <section className="bg-slate-900 text-white">
       <div className="mx-auto max-w-7xl px-4 py-20 text-center sm:px-6 sm:py-28 lg:px-8">
         <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-red-500">
           About Us

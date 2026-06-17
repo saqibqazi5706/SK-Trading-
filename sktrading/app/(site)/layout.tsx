@@ -1,5 +1,6 @@
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+import FloatingWhatsApp from "@/app/components/FloatingWhatsApp";
 
 export default function SiteLayout({
   children,
@@ -11,6 +12,7 @@ export default function SiteLayout({
       <Header />
       {children}
       <Footer />
+      <FloatingWhatsApp />
     </>
   );
 }

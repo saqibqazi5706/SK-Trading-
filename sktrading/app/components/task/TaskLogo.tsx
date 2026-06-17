@@ -1,13 +1,14 @@
-import { Factory } from "lucide-react";
+import Image from "next/image";
 
-// Placeholder logo — swap for an <Image> of the real Task logo later.
-export default function TaskLogo({ className = "" }: { className?: string }) {
+export default function TaskLogo({ className = "h-10" }: { className?: string }) {
   return (
-    <span className={`flex items-center gap-2 font-bold tracking-wide ${className}`}>
-      <Factory className="text-red-500" />
-      <span>
-        TASK<span className="text-red-500"> Machines</span>
-      </span>
-    </span>
+    <Image
+      src="/logo/task-tp.png"
+      alt="Task"
+      width={189}
+      height={75}
+      priority
+      className={`${className} w-auto object-contain`}
+    />
   );
 }

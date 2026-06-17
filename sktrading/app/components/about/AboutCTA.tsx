@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function AboutCTA() {
   return (
-    <section className="bg-red-950 py-16 text-white sm:py-20">
+    <section className="bg-slate-900 py-16 text-white sm:py-20">
       <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold sm:text-3xl">
           Looking for a specific machine?

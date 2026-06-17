@@ -1,15 +1,14 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
+import SkLogo from "./SkLogo";
 
 export default function Footer() {
   return (
-    <footer className="bg-red-950 text-slate-300">
+    <footer className="bg-slate-900 text-slate-300">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-8 sm:grid-cols-3">
           <div>
-            <h3 className="text-lg font-bold text-white">
-              SK <span className="text-red-500">TRADING</span>
-            </h3>
+            <SkLogo className="h-12" />
             <p className="mt-2 text-sm text-slate-400">
               Trusted supplier of used Plastic Injection Moulding & Aluminum
               Die Casting Machines, imported from China and Japan.
@@ -50,7 +49,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-red-900 pt-6 text-center text-xs text-slate-500 dark:text-slate-400">
+        <div className="mt-10 border-t border-slate-800 pt-6 text-center text-xs text-slate-500 dark:text-slate-400">
           © {new Date().getFullYear()} SK Trading. All rights reserved.
         </div>
       </div>

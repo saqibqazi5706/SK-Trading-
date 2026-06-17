@@ -3,7 +3,7 @@ import HeroSlideshow from "./HeroSlideshow";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-red-950 text-white">
+    <section className="relative overflow-hidden bg-slate-900 text-white">
       <HeroSlideshow />
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
         <div className="max-w-3xl">
